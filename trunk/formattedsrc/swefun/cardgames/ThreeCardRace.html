@@ -1,0 +1,231 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head>
+<title></title>
+  <style type="text/css">
+    <!--code { font-family: Courier New, Courier; font-size: 10pt; margin: 0px; }-->
+  </style>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head><body>
+
+
+<!-- ======================================================== -->
+<!-- = Java Sourcecode to HTML automatically converted code = -->
+<!-- =   Java2Html Converter 5.0 [2006-02-26] by Markus Gebhard  markus@jave.de   = -->
+<!-- =     Further information: http://www.java2html.de     = -->
+<div align="left" class="java">
+<table border="0" cellpadding="3" cellspacing="0" bgcolor="#ffffff">
+  <!-- start headline -->
+   <tr>
+    <td colspan="2">
+     <center><font size="+2">
+      <code><b>
+ThreeCardRace.java
+      </b></code>
+     </font></center>
+    </td>
+   </tr>
+  <!-- end headline -->
+   <tr>
+  <!-- start source code -->
+   <td nowrap="nowrap" valign="top" align="left">
+    <code>
+<font color="#808080">001</font>&nbsp;<font color="#0000c0"><b>package&nbsp;</b></font><font color="#000000">swefun.cardgames;</font><br />
+<font color="#808080">002</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">003</font>&nbsp;<font color="#0000c0"><b>import&nbsp;</b></font><font color="#000000">java.util.List;</font><br />
+<font color="#808080">004</font>&nbsp;<font color="#0000c0"><b>import&nbsp;</b></font><font color="#000000">java.util.ArrayList;</font><br />
+<font color="#808080">005</font>&nbsp;<font color="#0000c0"><b>import&nbsp;</b></font><font color="#000000">java.util.Scanner;</font><br />
+<font color="#808080">006</font>&nbsp;<font color="#0000c0"><b>import&nbsp;</b></font><font color="#000000">java.util.Map;</font><br />
+<font color="#808080">007</font>&nbsp;<font color="#0000c0"><b>import&nbsp;</b></font><font color="#000000">java.util.HashMap;</font><br />
+<font color="#808080">008</font>&nbsp;<font color="#0000c0"><b>import&nbsp;</b></font><font color="#000000">java.util.Set;</font><br />
+<font color="#808080">009</font>&nbsp;<font color="#0000c0"><b>import&nbsp;</b></font><font color="#000000">java.util.HashSet;</font><br />
+<font color="#808080">010</font>&nbsp;<font color="#0000c0"><b>import&nbsp;</b></font><font color="#000000">swefun.cardgames.playingcards.Suit;</font><br />
+<font color="#808080">011</font>&nbsp;<font color="#0000c0"><b>import&nbsp;</b></font><font color="#000000">swefun.cardgames.playingcards.Deck;</font><br />
+<font color="#808080">012</font>&nbsp;<font color="#008000">/**</font><br />
+<font color="#808080">013</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;Driver&nbsp;for&nbsp;the&nbsp;Three-Card&nbsp;Race&nbsp;game.</font><br />
+<font color="#808080">014</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*</font><br />
+<font color="#808080">015</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#008000">&lt;P&gt;</font><font color="#008000">The&nbsp;three-card&nbsp;race&nbsp;game&nbsp;is&nbsp;a&nbsp;two-player&nbsp;contest&nbsp;(players&nbsp;A&nbsp;and&nbsp;B).</font><br />
+<font color="#808080">016</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;The&nbsp;game&nbsp;is&nbsp;played&nbsp;with&nbsp;a&nbsp;standard&nbsp;52-card&nbsp;deck.</font><br />
+<font color="#808080">017</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;Only&nbsp;the&nbsp;color&nbsp;of&nbsp;the&nbsp;cards,&nbsp;red&nbsp;or&nbsp;black,&nbsp;is&nbsp;significant;</font><br />
+<font color="#808080">018</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ranks&nbsp;do&nbsp;not&nbsp;matter.</font><font color="#008000">&lt;/P&gt;</font><br />
+<font color="#808080">019</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*</font><br />
+<font color="#808080">020</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;Play&nbsp;of&nbsp;the&nbsp;game:</font><br />
+<font color="#808080">021</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#008000">&lt;OL&gt;</font><br />
+<font color="#808080">022</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#008000">&lt;LI&gt;</font><font color="#008000">Player&nbsp;A&nbsp;designates&nbsp;a&nbsp;length-three&nbsp;sequence&nbsp;indicating&nbsp;the&nbsp;colors</font><br />
+<font color="#808080">023</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;of&nbsp;three&nbsp;sequential&nbsp;cards&nbsp;(sequence&nbsp;A).</font><font color="#008000">&lt;/LI&gt;</font><br />
+<font color="#808080">024</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#008000">&lt;LI&gt;</font><font color="#008000">Player&nbsp;B&nbsp;designates&nbsp;a&nbsp;length-three&nbsp;sequence&nbsp;indicating&nbsp;the&nbsp;colors</font><br />
+<font color="#808080">025</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;of&nbsp;three&nbsp;sequential&nbsp;cards&nbsp;(sequence&nbsp;B).</font><font color="#008000">&lt;/LI&gt;</font><br />
+<font color="#808080">026</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#008000">&lt;LI&gt;</font><font color="#008000">The&nbsp;deck&nbsp;is&nbsp;suffled.</font><font color="#008000">&lt;/LI&gt;</font><br />
+<font color="#808080">027</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#008000">&lt;LI&gt;</font><font color="#008000">Cards&nbsp;are&nbsp;dealt&nbsp;face&nbsp;up&nbsp;one&nbsp;at&nbsp;a&nbsp;time&nbsp;from&nbsp;the&nbsp;deck</font><br />
+<font color="#808080">028</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;until&nbsp;three&nbsp;sequential&nbsp;cards&nbsp;are&nbsp;revealed&nbsp;whose&nbsp;colors</font><br />
+<font color="#808080">029</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;exactly&nbsp;match&nbsp;a&nbsp;designated&nbsp;sequence&nbsp;(A&nbsp;or&nbsp;B).</font><br />
+<font color="#808080">030</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;player&nbsp;whose&nbsp;sequence&nbsp;was&nbsp;matched&nbsp;earns&nbsp;a&nbsp;point</font><br />
+<font color="#808080">031</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(&#34;takes&nbsp;the&nbsp;trick&#34;)&nbsp;and&nbsp;all&nbsp;dealt&nbsp;cards&nbsp;are&nbsp;discarded.</font><font color="#008000">&lt;/LI&gt;</font><br />
+<font color="#808080">032</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#008000">&lt;LI&gt;</font><font color="#008000">The&nbsp;game&nbsp;continues&nbsp;by&nbsp;repeating&nbsp;the&nbsp;previous&nbsp;step</font><br />
+<font color="#808080">033</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;until&nbsp;the&nbsp;deck&nbsp;is&nbsp;exhausted.</font><font color="#008000">&lt;/LI&gt;</font><br />
+<font color="#808080">034</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#008000">&lt;LI&gt;</font><font color="#008000">The&nbsp;player&nbsp;with&nbsp;the&nbsp;highest&nbsp;point&nbsp;total&nbsp;(greatest&nbsp;number&nbsp;of</font><br />
+<font color="#808080">035</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tricks&nbsp;taken)&nbsp;wins&nbsp;the&nbsp;game.</font><font color="#008000">&lt;/LI&gt;</font><br />
+<font color="#808080">036</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#008000">&lt;/OL&gt;</font><br />
+<font color="#808080">037</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*</font><br />
+<font color="#808080">038</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#005500">@author&nbsp;</font><font color="#008000">Dr.&nbsp;Jody&nbsp;Paul</font><br />
+<font color="#808080">039</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#005500">@version&nbsp;</font><font color="#008000">1.1&nbsp;$Id:&nbsp;ThreeCardRace.java&nbsp;296&nbsp;2017-03-24&nbsp;21:30:35Z&nbsp;jody&nbsp;$</font><br />
+<font color="#808080">040</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*/</font><br />
+<font color="#808080">041</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">042</font>&nbsp;<font color="#0000c0"><b>public&nbsp;class&nbsp;</b></font><font color="#000000">ThreeCardRace&nbsp;</font><font color="#0000c0"><b>extends&nbsp;</b></font><font color="#000000">GameRunner&nbsp;</font><font color="#000000">{</font><br />
+<font color="#808080">043</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">/**&nbsp;Color&nbsp;constants&nbsp;for&nbsp;this&nbsp;game.&nbsp;*/</font><br />
+<font color="#808080">044</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>public&nbsp;static&nbsp;final&nbsp;</b></font><font color="#000000">Set&lt;String&gt;&nbsp;COLORS&nbsp;=&nbsp;</font><font color="#0000c0"><b>new&nbsp;</b></font><font color="#000000">HashSet&lt;&gt;</font><font color="#000000">()</font><font color="#000000">;</font><br />
+<font color="#808080">045</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">/**&nbsp;Number&nbsp;of&nbsp;suit&nbsp;colors&nbsp;required&nbsp;for&nbsp;three&nbsp;card&nbsp;race&nbsp;game.&nbsp;*/</font><br />
+<font color="#808080">046</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>public&nbsp;static&nbsp;final&nbsp;</b></font><font color="#c00000"><b>int&nbsp;</b></font><font color="#000000">NUM_COLORS&nbsp;=&nbsp;</font><font color="#990000">2</font><font color="#000000">;</font><br />
+<font color="#808080">047</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">/**&nbsp;Length&nbsp;of&nbsp;color&nbsp;sequence.&nbsp;*/</font><br />
+<font color="#808080">048</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>public&nbsp;static&nbsp;final&nbsp;</b></font><font color="#c00000"><b>int&nbsp;</b></font><font color="#000000">SEQUENCE_LENGTH&nbsp;=&nbsp;</font><font color="#990000">3</font><font color="#000000">;</font><br />
+<font color="#808080">049</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">/**&nbsp;Number&nbsp;of&nbsp;players&nbsp;in&nbsp;this&nbsp;game.&nbsp;*/</font><br />
+<font color="#808080">050</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>public&nbsp;static&nbsp;final&nbsp;</b></font><font color="#c00000"><b>int&nbsp;</b></font><font color="#000000">NUM_PLAYERS&nbsp;=&nbsp;</font><font color="#990000">2</font><font color="#000000">;</font><br />
+<font color="#808080">051</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#0000c0"><b>static&nbsp;</b></font><font color="#000000">Scanner&nbsp;keyboard;</font><br />
+<font color="#808080">052</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#0000c0"><b>static&nbsp;</b></font><font color="#c00000"><b>boolean&nbsp;</b></font><font color="#000000">isHuman;</font><br />
+<font color="#808080">053</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#0000c0"><b>static&nbsp;</b></font><font color="#000000">ThreeCardRacePlayer&nbsp;player1;</font><br />
+<font color="#808080">054</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#0000c0"><b>static&nbsp;</b></font><font color="#000000">ThreeCardRacePlayer&nbsp;player2;</font><br />
+<font color="#808080">055</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">056</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">057</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">058</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#0000c0"><b>static&nbsp;</b></font><font color="#000000">{</font><br />
+<font color="#808080">059</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>for&nbsp;</b></font><font color="#000000">(</font><font color="#000000">Suit&nbsp;s&nbsp;:&nbsp;Suit.values</font><font color="#000000">())&nbsp;{</font><br />
+<font color="#808080">060</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">COLORS.add</font><font color="#000000">(</font><font color="#000000">s.color</font><font color="#000000">())</font><font color="#000000">;</font><br />
+<font color="#808080">061</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">062</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">063</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">064</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">/**</font><br />
+<font color="#808080">065</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;Construct&nbsp;Three&nbsp;Card&nbsp;Game&nbsp;Runner.</font><br />
+<font color="#808080">066</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;Creates&nbsp;one&nbsp;interactive&nbsp;player&nbsp;and&nbsp;one&nbsp;non-interactive&nbsp;player.</font><br />
+<font color="#808080">067</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;Uses&nbsp;colors&nbsp;from&nbsp;Suit.</font><br />
+<font color="#808080">068</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">*/</font><br />
+<font color="#808080">069</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>public&nbsp;</b></font><font color="#000000">ThreeCardRace</font><font color="#000000">()&nbsp;{</font><br />
+<font color="#808080">070</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>this</b></font><font color="#000000">(</font><font color="#0000c0"><b>new&nbsp;</b></font><font color="#000000">ThreeCardRacePlayer</font><font color="#000000">(</font><font color="#990000">&#34;Human&#34;</font><font color="#000000">,&nbsp;</font><font color="#0000c0"><b>true</b></font><font color="#000000">)</font><font color="#000000">,</font><br />
+<font color="#808080">071</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>new&nbsp;</b></font><font color="#000000">ThreeCardRacePlayer</font><font color="#000000">(</font><font color="#990000">&#34;Automaton&#34;</font><font color="#000000">,&nbsp;</font><font color="#0000c0"><b>false</b></font><font color="#000000">))</font><font color="#000000">;</font><br />
+<font color="#808080">072</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">073</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">074</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">/**</font><br />
+<font color="#808080">075</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;Construct&nbsp;Three&nbsp;Card&nbsp;Game&nbsp;Runner.</font><br />
+<font color="#808080">076</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;Uses&nbsp;colors&nbsp;from&nbsp;Suit;&nbsp;exits&nbsp;if&nbsp;invalid&nbsp;number&nbsp;of&nbsp;suit&nbsp;colors.</font><br />
+<font color="#808080">077</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#005500">@param&nbsp;</font><font color="#008000">playerA&nbsp;the&nbsp;first&nbsp;player</font><br />
+<font color="#808080">078</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#005500">@param&nbsp;</font><font color="#008000">playerB&nbsp;the&nbsp;second&nbsp;player</font><br />
+<font color="#808080">079</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">*/</font><br />
+<font color="#808080">080</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>public&nbsp;</b></font><font color="#000000">ThreeCardRace</font><font color="#000000">(</font><font color="#0000c0"><b>final&nbsp;</b></font><font color="#000000">ThreeCardRacePlayer&nbsp;playerA,</font><br />
+<font color="#808080">081</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>final&nbsp;</b></font><font color="#000000">ThreeCardRacePlayer&nbsp;playerB</font><font color="#000000">)&nbsp;{</font><br />
+<font color="#808080">082</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">ThreeCardRace.player1&nbsp;=&nbsp;playerA;</font><br />
+<font color="#808080">083</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">ThreeCardRace.player2&nbsp;=&nbsp;playerB;</font><br />
+<font color="#808080">084</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">085</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">086</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">/**</font><br />
+<font color="#808080">087</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;Play&nbsp;one&nbsp;game&nbsp;and&nbsp;report&nbsp;results.</font><br />
+<font color="#808080">088</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">*</font><br />
+<font color="#808080">089</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#005500">@param&nbsp;</font><font color="#008000">showTrace&nbsp;if&nbsp;true,&nbsp;then&nbsp;the&nbsp;method&nbsp;displays&nbsp;each&nbsp;card&nbsp;dealt</font><br />
+<font color="#808080">090</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;identifies&nbsp;tricks&nbsp;as&nbsp;they&nbsp;are&nbsp;taken</font><br />
+<font color="#808080">091</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#005500">@return&nbsp;</font><font color="#008000">map&nbsp;that&nbsp;associates&nbsp;each&nbsp;player&nbsp;with&nbsp;the&nbsp;number</font><br />
+<font color="#808080">092</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;of&nbsp;tricks&nbsp;taken&nbsp;by&nbsp;that&nbsp;player</font><br />
+<font color="#808080">093</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">*/</font><br />
+<font color="#808080">094</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>public&nbsp;</b></font><font color="#000000">Map&lt;ThreeCardRacePlayer,&nbsp;Integer&gt;&nbsp;playGame</font><font color="#000000">(</font><font color="#0000c0"><b>final&nbsp;</b></font><font color="#c00000"><b>boolean&nbsp;</b></font><font color="#000000">showTrace</font><font color="#000000">)&nbsp;{</font><br />
+<font color="#808080">095</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">//&nbsp;Outline&nbsp;of&nbsp;play:</font><br />
+<font color="#808080">096</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">//&nbsp;&nbsp;Verify&nbsp;players.</font><br />
+<font color="#808080">097</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">//&nbsp;&nbsp;Create&nbsp;a&nbsp;standard&nbsp;deck.</font><br />
+<font color="#808080">098</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">//&nbsp;&nbsp;Get&nbsp;sequences&nbsp;from&nbsp;players.</font><br />
+<font color="#808080">099</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">//&nbsp;&nbsp;Shuffle&nbsp;the&nbsp;deck.</font><br />
+<font color="#808080">100</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">//&nbsp;&nbsp;Deal&nbsp;entire&nbsp;deck,&nbsp;marking&nbsp;tricks&nbsp;as&nbsp;they&nbsp;are&nbsp;taken,</font><br />
+<font color="#808080">101</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">//&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;displaying&nbsp;trace&nbsp;if&nbsp;specified&nbsp;by&nbsp;parameter.</font><br />
+<font color="#808080">102</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">//&nbsp;Report&nbsp;results.</font><br />
+<font color="#808080">103</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>return&nbsp;new&nbsp;</b></font><font color="#000000">HashMap&lt;ThreeCardRacePlayer,&nbsp;Integer&gt;</font><font color="#000000">()</font><font color="#000000">;</font><br />
+<font color="#808080">104</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">105</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">106</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">/**</font><br />
+<font color="#808080">107</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;Sample&nbsp;driver&nbsp;for&nbsp;Three-Card&nbsp;Race&nbsp;game.</font><br />
+<font color="#808080">108</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;Replace&nbsp;as&nbsp;desired.</font><br />
+<font color="#808080">109</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#005500">@param&nbsp;</font><font color="#008000">args&nbsp;currently&nbsp;ignored</font><br />
+<font color="#808080">110</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">*/</font><br />
+<font color="#808080">111</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">/**Guillermo&nbsp;hasn't&nbsp;added&nbsp;code&nbsp;above&nbsp;this&nbsp;line.</font><br />
+<font color="#808080">112</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">*Please&nbsp;remember&nbsp;this&nbsp;is&nbsp;all&nbsp;pre-refactoring*/</font><br />
+<font color="#808080">113</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">114</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>public&nbsp;static&nbsp;</b></font><font color="#c00000"><b>void&nbsp;</b></font><font color="#000000">main</font><font color="#000000">(</font><font color="#0000c0"><b>final&nbsp;</b></font><font color="#000000">String</font><font color="#000000">[]&nbsp;</font><font color="#000000">args</font><font color="#000000">)&nbsp;{</font><br />
+<font color="#808080">115</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">//Game&nbsp;Setup</font><br />
+<font color="#808080">116</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">Deck&nbsp;deck&nbsp;=&nbsp;</font><font color="#0000c0"><b>new&nbsp;</b></font><font color="#000000">Deck</font><font color="#000000">()</font><font color="#000000">;</font><br />
+<font color="#808080">117</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">System.out.println</font><font color="#000000">(</font><font color="#990000">&#34;Three-Card&nbsp;Race&nbsp;[Version:&nbsp;&#34;&nbsp;</font><font color="#000000">+&nbsp;version</font><font color="#000000">(</font><font color="#990000">&#34;$Revision:&nbsp;370&nbsp;$&#34;</font><font color="#000000">)&nbsp;</font><font color="#000000">+&nbsp;</font><font color="#990000">&#34;]&#34;</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">118</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><br />
+<font color="#808080">119</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">List&lt;String&gt;&nbsp;seq1&nbsp;=&nbsp;</font><font color="#0000c0"><b>new&nbsp;</b></font><font color="#000000">ArrayList&lt;String&gt;</font><font color="#000000">(</font><font color="#990000">3</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">120</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">List&lt;String&gt;&nbsp;seq2&nbsp;=&nbsp;</font><font color="#0000c0"><b>new&nbsp;</b></font><font color="#000000">ArrayList&lt;String&gt;</font><font color="#000000">(</font><font color="#990000">3</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">121</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">Scanner&nbsp;keyboard&nbsp;=&nbsp;</font><font color="#0000c0"><b>new&nbsp;</b></font><font color="#000000">Scanner</font><font color="#000000">(</font><font color="#000000">System.in</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">122</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">System.out.println</font><font color="#000000">(</font><font color="#990000">&#34;Would&nbsp;you&nbsp;like&nbsp;to&nbsp;simulate&nbsp;the&nbsp;game&nbsp;or&nbsp;play&nbsp;the&nbsp;game?&#34;</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">123</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><br />
+<font color="#808080">124</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">isHuman&nbsp;=&nbsp;checkPlayerHuman</font><font color="#000000">(</font><font color="#000000">keyboard.nextLine</font><font color="#000000">())</font><font color="#000000">;</font><br />
+<font color="#808080">125</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">String&nbsp;player1Name&nbsp;=&nbsp;setName</font><font color="#000000">(</font><font color="#000000">NUM_PLAYERS-</font><font color="#990000">1</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">126</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">String&nbsp;player2Name&nbsp;=&nbsp;setName</font><font color="#000000">(</font><font color="#000000">NUM_PLAYERS</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">127</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>if&nbsp;</b></font><font color="#000000">(</font><font color="#000000">isHuman&nbsp;==&nbsp;</font><font color="#0000c0"><b>true</b></font><font color="#000000">){</font><br />
+<font color="#808080">128</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">player1&nbsp;=&nbsp;</font><font color="#0000c0"><b>new&nbsp;</b></font><font color="#000000">ThreeCardRacePlayer</font><font color="#000000">(</font><font color="#000000">player1Name,isHuman</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">129</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">player2&nbsp;=&nbsp;</font><font color="#0000c0"><b>new&nbsp;</b></font><font color="#000000">ThreeCardRacePlayer</font><font color="#000000">(</font><font color="#000000">player2Name,isHuman</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">130</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">System.out.println</font><font color="#000000">(</font><font color="#990000">&#34;Player&nbsp;1&nbsp;:&nbsp;&#34;</font><font color="#000000">+player1+</font><font color="#990000">&#34;&nbsp;///&nbsp;&#34;</font><font color="#000000">+&nbsp;</font><font color="#990000">&#34;Player&nbsp;2&nbsp;:&nbsp;&#34;</font><font color="#000000">+player2</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">131</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">seq1=playerChooseSeq</font><font color="#000000">(</font><font color="#000000">player1</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">132</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">seq2=playerChooseSeq</font><font color="#000000">(</font><font color="#000000">player2</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">133</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#c00000"><b>boolean&nbsp;&nbsp;</b></font><font color="#000000">chkSeq=ensureDifferentSequences</font><font color="#000000">(</font><font color="#000000">seq1,seq2</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">134</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">System.out.println</font><font color="#000000">(</font><font color="#000000">player1+</font><font color="#990000">&#34;&nbsp;chose:&nbsp;&#34;</font><font color="#000000">+seq1</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">135</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">System.out.println</font><font color="#000000">(</font><font color="#000000">player2+</font><font color="#990000">&#34;&nbsp;chose:&nbsp;&#34;</font><font color="#000000">+seq2</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">136</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">//Below&nbsp;this&nbsp;line&nbsp;will&nbsp;be&nbsp;code&nbsp;related&nbsp;to&nbsp;actually&nbsp;playing&nbsp;the&nbsp;game</font><br />
+<font color="#808080">137</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">138</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><br />
+<font color="#808080">139</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">ThreeCardRace&nbsp;tcrGame&nbsp;=&nbsp;</font><font color="#0000c0"><b>new&nbsp;</b></font><font color="#000000">ThreeCardRace</font><font color="#000000">(</font><font color="#0000c0"><b>new&nbsp;</b></font><font color="#000000">ThreeCardRacePlayer</font><font color="#000000">(</font><font color="#000000">player1Name,isHuman</font><font color="#000000">)</font><font color="#000000">,new&nbsp;ThreeCardRacePlayer</font><font color="#000000">(</font><font color="#000000">player2Name,isHuman</font><font color="#000000">))</font><font color="#000000">;</font><br />
+<font color="#808080">140</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">141</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">//tcrGame.playGame(true);</font><br />
+<font color="#808080">142</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">143</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">144</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>public&nbsp;static&nbsp;</b></font><font color="#000000">String&nbsp;setName</font><font color="#000000">(</font><font color="#c00000"><b>int&nbsp;</b></font><font color="#000000">n</font><font color="#000000">){</font><br />
+<font color="#808080">145</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">String&nbsp;name;</font><br />
+<font color="#808080">146</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">System.out.println</font><font color="#000000">(</font><font color="#990000">&#34;Player&nbsp;&#34;</font><font color="#000000">+n+</font><font color="#990000">&#34;:&nbsp;Enter&nbsp;Your&nbsp;Name:&#34;</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">147</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">keyboard&nbsp;=&nbsp;</font><font color="#0000c0"><b>new&nbsp;</b></font><font color="#000000">Scanner</font><font color="#000000">(</font><font color="#000000">System.in</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">148</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">name&nbsp;=&nbsp;keyboard.nextLine</font><font color="#000000">()</font><font color="#000000">;</font><br />
+<font color="#808080">149</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>return&nbsp;</b></font><font color="#000000">name;</font><br />
+<font color="#808080">150</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">151</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">152</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>public&nbsp;static&nbsp;</b></font><font color="#c00000"><b>boolean&nbsp;</b></font><font color="#000000">checkPlayerHuman</font><font color="#000000">(</font><font color="#000000">String&nbsp;answer</font><font color="#000000">){</font><br />
+<font color="#808080">153</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#0000c0"><b>if&nbsp;</b></font><font color="#000000">(</font><font color="#000000">answer.equalsIgnoreCase</font><font color="#000000">(</font><font color="#990000">&#34;simulate&#34;</font><font color="#000000">)&nbsp;){</font><br />
+<font color="#808080">154</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>return&nbsp;false</b></font><font color="#000000">;</font><br />
+<font color="#808080">155</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">156</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>else</b></font><br />
+<font color="#808080">157</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">isHuman&nbsp;=&nbsp;</font><font color="#0000c0"><b>true</b></font><font color="#000000">;</font><br />
+<font color="#808080">158</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>return&nbsp;true</b></font><font color="#000000">;</font><br />
+<font color="#808080">159</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">160</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">161</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>public&nbsp;static&nbsp;</b></font><font color="#000000">List&lt;String&gt;&nbsp;playerChooseSeq</font><font color="#000000">(</font><font color="#000000">ThreeCardRacePlayer&nbsp;player</font><font color="#000000">){</font><br />
+<font color="#808080">162</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">List&lt;String&gt;&nbsp;cardSeq&nbsp;=&nbsp;</font><font color="#0000c0"><b>new&nbsp;</b></font><font color="#000000">ArrayList&lt;String&gt;</font><font color="#000000">(</font><font color="#000000">SEQUENCE_LENGTH</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">163</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">System.out.println</font><font color="#000000">(</font><font color="#000000">player+</font><font color="#990000">&#34;&nbsp;please&nbsp;select&nbsp;your&nbsp;desired&nbsp;3&nbsp;card&nbsp;sequence&nbsp;from&#34;</font><font color="#000000">+</font><br />
+<font color="#808080">164</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#990000">&#34;&nbsp;either&nbsp;RED&nbsp;or&nbsp;BLACK,&nbsp;ensuring&nbsp;to&nbsp;press&nbsp;enter&nbsp;between&nbsp;selections&#34;</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">165</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">cardSeq.add</font><font color="#000000">(</font><font color="#000000">keyboard.nextLine</font><font color="#000000">())</font><font color="#000000">;</font><br />
+<font color="#808080">166</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">cardSeq.add</font><font color="#000000">(</font><font color="#000000">keyboard.nextLine</font><font color="#000000">())</font><font color="#000000">;</font><br />
+<font color="#808080">167</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">cardSeq.add</font><font color="#000000">(</font><font color="#000000">keyboard.nextLine</font><font color="#000000">())</font><font color="#000000">;</font><br />
+<font color="#808080">168</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">System.out.println</font><font color="#000000">(</font><font color="#000000">player+</font><font color="#990000">&#34;,&nbsp;you&nbsp;chose&nbsp;&#34;</font><font color="#000000">+cardSeq+</font><font color="#990000">&#34;,&nbsp;is&nbsp;this&nbsp;correct?&#34;</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">169</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">String&nbsp;answer&nbsp;=&nbsp;keyboard.nextLine</font><font color="#000000">()</font><font color="#000000">;</font><br />
+<font color="#808080">170</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#0000c0"><b>if&nbsp;</b></font><font color="#000000">(</font><font color="#000000">answer.equalsIgnoreCase</font><font color="#000000">(</font><font color="#990000">&#34;y&#34;</font><font color="#000000">)&nbsp;</font><font color="#000000">||&nbsp;answer.equalsIgnoreCase</font><font color="#000000">(</font><font color="#990000">&#34;yes&#34;</font><font color="#000000">)&nbsp;){</font><br />
+<font color="#808080">171</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>return&nbsp;</b></font><font color="#000000">cardSeq;</font><br />
+<font color="#808080">172</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">}</font><font color="#0000c0"><b>else&nbsp;</b></font><font color="#000000">{</font><br />
+<font color="#808080">173</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">System.out.println</font><font color="#000000">(</font><font color="#990000">&#34;Sorry!&nbsp;Let’s&nbsp;try&nbsp;again,&nbsp;&#34;</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">174</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">playerChooseSeq</font><font color="#000000">(</font><font color="#000000">player</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">175</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>return&nbsp;</b></font><font color="#000000">cardSeq;</font><br />
+<font color="#808080">176</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">177</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">178</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">179</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>public&nbsp;static&nbsp;</b></font><font color="#c00000"><b>boolean&nbsp;</b></font><font color="#000000">ensureDifferentSequences</font><font color="#000000">(</font><font color="#000000">List&lt;String&gt;&nbsp;seq1,&nbsp;List&lt;String&gt;&nbsp;seq2</font><font color="#000000">){</font><br />
+<font color="#808080">180</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#0000c0"><b>if&nbsp;</b></font><font color="#000000">(</font><font color="#000000">seq1.equals</font><font color="#000000">(</font><font color="#000000">seq2</font><font color="#000000">)){</font><br />
+<font color="#808080">181</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">System.out.println</font><font color="#000000">(</font><font color="#990000">&#34;!!Players&nbsp;cannot&nbsp;choose&nbsp;the&nbsp;same&nbsp;sequence!!&#34;</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">182</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>return&nbsp;false</b></font><font color="#000000">;</font><br />
+<font color="#808080">183</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">184</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#0000c0"><b>else</b></font><font color="#000000">{</font><br />
+<font color="#808080">185</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>return&nbsp;true</b></font><font color="#000000">;</font><br />
+<font color="#808080">186</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">187</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">188</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">189</font>&nbsp;<font color="#000000">}</font></code>
+    
+   </td>
+  <!-- end source code -->
+   </tr>
+</table>
+</div>
+<!-- =       END of automatically generated HTML code       = -->
+<!-- ======================================================== -->
+
+
+</body></html>

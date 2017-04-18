@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd-cpd>
+   <duplication lines="12" tokens="85">
+      <file line="39"
+            path="/Users/marty/S2G2/trunk/swefun/cardgames/ThreeCardRacePlayerTest.java"/>
+      <file line="59"
+            path="/Users/marty/S2G2/trunk/swefun/cardgames/ThreeCardRacePlayerTest.java"/>
+      <codefragment><![CDATA[            = new ThreeCardRacePlayer("Computer", false);
+        assertEquals(ThreeCardRace.SEQUENCE_LENGTH,
+                     player.getSequence(null).size());
+        List<String> seq = new ArrayList<String>();
+        seq.add("RED");
+        seq.add("BLACK");
+        seq.add("RED");
+        List<String> choice = player.getSequence(seq);
+        assertEquals(ThreeCardRace.SEQUENCE_LENGTH, choice.size());
+        assertFalse("Invalid choice; identical to opponent",
+                    seq.equals(choice));
+    }]]></codefragment>
+   </duplication>
+   <duplication lines="11" tokens="53">
+      <file line="12"
+            path="/Users/marty/S2G2/trunk/swefun/cardgames/playingcards/CardTest.java"/>
+      <file line="16"
+            path="/Users/marty/S2G2/trunk/swefun/cardgames/playingcards/HandTest.java"/>
+      <codefragment><![CDATA[public class CardTest {
+    /** The Clubs suit. */
+    private static final Suit CLUBS = Suit.valueOf("CLUBS");
+    /** The Diamonds suit. */
+    private static final Suit DIAMONDS = Suit.valueOf("DIAMONDS");
+    /** The Hearts suit. */
+    private static final Suit HEARTS = Suit.valueOf("HEARTS");
+    /** The Spades suit. */
+    private static final Suit SPADES = Suit.valueOf("SPADES");
+    /** The Seven rank. */
+    private static final Rank SEVEN = Rank.valueOf("SEVEN");]]></codefragment>
+   </duplication>
+   <duplication lines="5" tokens="53">
+      <file line="193"
+            path="/Users/marty/S2G2/trunk/swefun/cardgames/playingcards/HandTest.java"/>
+      <file line="205"
+            path="/Users/marty/S2G2/trunk/swefun/cardgames/playingcards/HandTest.java"/>
+      <codefragment><![CDATA[        assertEquals(handy.getCard(0), new Card(FIVE, DIAMONDS));
+        for (int i = 0; i < Hand.HAND_SIZE - 1; i++) {
+            assertTrue(handy.getCard(i).rank().value()
+                < handy.getCard(i + 1).rank().value());
+        }]]></codefragment>
+   </duplication>
+   <duplication lines="9" tokens="47">
+      <file line="19"
+            path="/Users/marty/S2G2/trunk/swefun/cardgames/playingcards/DeckTest.java"/>
+      <file line="20"
+            path="/Users/marty/S2G2/trunk/swefun/cardgames/playingcards/HandTest.java"/>
+      <codefragment><![CDATA[    private static final Suit CLUBS = Suit.valueOf("CLUBS");
+    /** The Hearts suit. */
+    private static final Suit HEARTS = Suit.valueOf("HEARTS");
+    /** The Spades suit. */
+    private static final Suit SPADES = Suit.valueOf("SPADES");
+    /** The Ace rank. */
+    private static final Rank ACE = Rank.valueOf("ACE");
+    /** The Four rank. */
+    private static final Rank FOUR = Rank.valueOf("FOUR");]]></codefragment>
+   </duplication>
+   <duplication lines="16" tokens="46">
+      <file line="124"
+            path="/Users/marty/S2G2/trunk/swefun/cardgames/playingcards/Card.java"/>
+      <file line="207"
+            path="/Users/marty/S2G2/trunk/swefun/cardgames/playingcards/Deck.java"/>
+      <file line="85"
+            path="/Users/marty/S2G2/trunk/swefun/cardgames/playingcards/Hand.java"/>
+      <codefragment><![CDATA[    }
+
+    /**
+     * Overridden equals method;
+     *   both rank and suit must be the same.
+     * @param obj the object to compare with this card
+     * @return true if and only if rank and suit match
+     */
+    @Override
+    public boolean equals(final Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (!(obj.getClass().equals(this.getClass()))) {
+            return false;
+        }]]></codefragment>
+   </duplication>
+   <duplication lines="7" tokens="35">
+      <file line="16"
+            path="/Users/marty/S2G2/trunk/swefun/cardgames/playingcards/CardTest.java"/>
+      <file line="19"
+            path="/Users/marty/S2G2/trunk/swefun/cardgames/playingcards/DeckTest.java"/>
+      <codefragment><![CDATA[    private static final Suit DIAMONDS = Suit.valueOf("DIAMONDS");
+    /** The Hearts suit. */
+    private static final Suit HEARTS = Suit.valueOf("HEARTS");
+    /** The Spades suit. */
+    private static final Suit SPADES = Suit.valueOf("SPADES");
+    /** The Seven rank. */
+    private static final Rank SEVEN = Rank.valueOf("SEVEN");]]></codefragment>
+   </duplication>
+   <duplication lines="4" tokens="29">
+      <file line="183"
+            path="/Users/marty/S2G2/trunk/swefun/cardgames/playingcards/HandTest.java"/>
+      <file line="192"
+            path="/Users/marty/S2G2/trunk/swefun/cardgames/playingcards/HandTest.java"/>
+      <codefragment><![CDATA[        Hand handy = new Hand(Hand.HAND_SIZE, new Deck(), FIVE_DIAMONDS_LOC);
+        assertEquals(handy.getCard(0), new Card(FIVE, DIAMONDS));
+        // Reverse the order of the hand.
+        for (int i = 0; i < Hand.HAND_SIZE / 2; i++) {]]></codefragment>
+   </duplication>
+   <duplication lines="6" tokens="26">
+      <file line="116"
+            path="/Users/marty/S2G2/trunk/swefun/cardgames/playingcards/DeckIterator.java"/>
+      <file line="31"
+            path="/Users/marty/S2G2/trunk/swefun/cardgames/playingcards/DeckIteratorTest.java"/>
+      <codefragment><![CDATA[        DeckIterator di = new DeckIterator(numCardsPerDeck);
+        Deck currentDeck = null;
+        long numPermutations = 1;
+        for (int i = 2; i <= numCardsPerDeck; i++) {
+            numPermutations *= i;
+        }]]></codefragment>
+   </duplication>
+   <duplication lines="4" tokens="24">
+      <file line="39"
+            path="/Users/marty/S2G2/trunk/swefun/cardgames/playingcards/DeckTest.java"/>
+      <file line="158"
+            path="/Users/marty/S2G2/trunk/swefun/cardgames/playingcards/DeckTest.java"/>
+      <codefragment><![CDATA[    public void defaultDeckTest() {
+        Deck defaultDeck = new Deck();
+        assertEquals(Deck.DECK_SIZE, defaultDeck.size());
+        assertEquals(ACE, defaultDeck.getCard(ACE.ordinal()).rank());]]></codefragment>
+   </duplication>
+   <duplication lines="3" tokens="24">
+      <file line="82"
+            path="/Users/marty/S2G2/trunk/swefun/cardgames/playingcards/DeckTest.java"/>
+      <file line="84"
+            path="/Users/marty/S2G2/trunk/swefun/cardgames/playingcards/DeckTest.java"/>
+      <codefragment><![CDATA[        Deck deck2 = new Deck(new Card[0]);
+        assertThat(deck0.equals(deck2), is(false));
+        deck2.add(new Card(Rank.DEUCE, Suit.HEARTS));]]></codefragment>
+   </duplication>
+   <duplication lines="3" tokens="23">
+      <file line="212"
+            path="/Users/marty/S2G2/trunk/swefun/cardgames/playingcards/Hand.java"/>
+      <file line="215"
+            path="/Users/marty/S2G2/trunk/swefun/cardgames/playingcards/Hand.java"/>
+      <codefragment><![CDATA[        Hand localHand = new Hand(HAND_SIZE, new Deck());
+        System.out.println(localHand);
+        System.out.println("  Hand encoding: " + localHand.encode());]]></codefragment>
+   </duplication>
+   <duplication lines="5" tokens="22">
+      <file line="22"
+            path="/Users/marty/S2G2/trunk/swefun/cardgames/playingcards/CardTest.java"/>
+      <file line="38"
+            path="/Users/marty/S2G2/trunk/swefun/cardgames/playingcards/HandTest.java"/>
+      <codefragment><![CDATA[    private static final Rank SEVEN = Rank.valueOf("SEVEN");
+    /** The Jack rank. */
+    private static final Rank JACK = Rank.valueOf("JACK");
+    /** The Queen rank. */
+    private static final Rank QUEEN = Rank.valueOf("QUEEN");]]></codefragment>
+   </duplication>
+   <duplication lines="12" tokens="22">
+      <file line="47"
+            path="/Users/marty/S2G2/trunk/swefun/cardgames/playingcards/Deck.java"/>
+      <file line="58"
+            path="/Users/marty/S2G2/trunk/swefun/cardgames/playingcards/Deck.java"/>
+      <codefragment><![CDATA[    public Deck(final List<Card> cards) {
+        for (Card c : cards) {
+                this.cardList.add(c);
+        }
+    }
+
+    /**
+     * Constructs a deck of cards with references
+     * to cards provided by the parameter.
+     * @param cards the cards forming the new deck
+     */
+    public Deck(final Card[] cards) {]]></codefragment>
+   </duplication>
+   <duplication lines="5" tokens="22">
+      <file line="25"
+            path="/Users/marty/S2G2/trunk/swefun/cardgames/playingcards/DeckTest.java"/>
+      <file line="30"
+            path="/Users/marty/S2G2/trunk/swefun/cardgames/playingcards/HandTest.java"/>
+      <codefragment><![CDATA[    private static final Rank ACE = Rank.valueOf("ACE");
+    /** The Four rank. */
+    private static final Rank FOUR = Rank.valueOf("FOUR");
+    /** Location of Ace of Clubs. */
+    private static final int ACECLUBS_LOC]]></codefragment>
+   </duplication>
+   <duplication lines="8" tokens="21">
+      <file line="17" path="/Users/marty/S2G2/trunk/swefun/cardgames/GameRunner.java"/>
+      <file line="244"
+            path="/Users/marty/S2G2/trunk/swefun/cardgames/playingcards/Deck.java"/>
+      <codefragment><![CDATA[    }
+
+    /**
+     * Drive the card games project.
+     * @param args Currently ignored.
+     */
+    public static void main(final String[] args) {
+        System.out.println("GameRunner [Version: " + VERSION + "]");]]></codefragment>
+   </duplication>
+   <duplication lines="1" tokens="21">
+      <file line="44"
+            path="/Users/marty/S2G2/trunk/swefun/cardgames/playingcards/HandTest.java"/>
+      <file line="85"
+            path="/Users/marty/S2G2/trunk/swefun/cardgames/playingcards/HandTest.java"/>
+      <codefragment><![CDATA[                = new Card(Rank.values()[0], Suit.values()[0]);]]></codefragment>
+   </duplication>
+   <duplication lines="2" tokens="20">
+      <file line="41"
+            path="/Users/marty/S2G2/trunk/swefun/cardgames/playingcards/DeckTest.java"/>
+      <file line="171"
+            path="/Users/marty/S2G2/trunk/swefun/cardgames/playingcards/DeckTest.java"/>
+      <codefragment><![CDATA[        assertEquals(Deck.DECK_SIZE, defaultDeck.size());
+        assertEquals(ACE, defaultDeck.getCard(ACE.ordinal()).rank());]]></codefragment>
+   </duplication>
+   <duplication lines="3" tokens="20">
+      <file line="44"
+            path="/Users/marty/S2G2/trunk/swefun/cardgames/playingcards/DeckTest.java"/>
+      <file line="160"
+            path="/Users/marty/S2G2/trunk/swefun/cardgames/playingcards/DeckTest.java"/>
+      <codefragment><![CDATA[           defaultDeck.getCard(HEARTS.ordinal() * Rank.values().length).suit());
+        assertEquals(new Card(ACE, CLUBS),
+                     defaultDeck.getCard(ACECLUBS_LOC));]]></codefragment>
+   </duplication>
+</pmd-cpd>

@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head>
+<title></title>
+  <style type="text/css">
+    <!--code { font-family: Courier New, Courier; font-size: 10pt; margin: 0px; }-->
+  </style>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head><body>
+
+
+<!-- ======================================================== -->
+<!-- = Java Sourcecode to HTML automatically converted code = -->
+<!-- =   Java2Html Converter 5.0 [2006-02-26] by Markus Gebhard  markus@jave.de   = -->
+<!-- =     Further information: http://www.java2html.de     = -->
+<div align="left" class="java">
+<table border="0" cellpadding="3" cellspacing="0" bgcolor="#ffffff">
+  <!-- start headline -->
+   <tr>
+    <td colspan="2">
+     <center><font size="+2">
+      <code><b>
+CardTest.java
+      </b></code>
+     </font></center>
+    </td>
+   </tr>
+  <!-- end headline -->
+   <tr>
+  <!-- start source code -->
+   <td nowrap="nowrap" valign="top" align="left">
+    <code>
+<font color="#808080">001</font>&nbsp;<font color="#0000c0"><b>package&nbsp;</b></font><font color="#000000">swefun.cardgames.playingcards;</font><br />
+<font color="#808080">002</font>&nbsp;<font color="#0000c0"><b>import&nbsp;static&nbsp;</b></font><font color="#000000">org.junit.Assert.assertEquals;</font><br />
+<font color="#808080">003</font>&nbsp;<font color="#0000c0"><b>import&nbsp;static&nbsp;</b></font><font color="#000000">org.junit.Assert.assertFalse;</font><br />
+<font color="#808080">004</font>&nbsp;<font color="#0000c0"><b>import&nbsp;static&nbsp;</b></font><font color="#000000">org.junit.Assert.assertNotNull;</font><br />
+<font color="#808080">005</font>&nbsp;<font color="#0000c0"><b>import&nbsp;</b></font><font color="#000000">org.junit.Test;</font><br />
+<font color="#808080">006</font>&nbsp;<font color="#008000">/**</font><br />
+<font color="#808080">007</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;Tests&nbsp;for&nbsp;Card&nbsp;class.</font><br />
+<font color="#808080">008</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*</font><br />
+<font color="#808080">009</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#005500">@author&nbsp;&nbsp;</font><font color="#008000">Dr.&nbsp;Jody&nbsp;Paul</font><br />
+<font color="#808080">010</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#005500">@version&nbsp;</font><font color="#008000">1.2&nbsp;$Revision:&nbsp;295&nbsp;$</font><br />
+<font color="#808080">011</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*/</font><br />
+<font color="#808080">012</font>&nbsp;<font color="#0000c0"><b>public&nbsp;class&nbsp;</b></font><font color="#000000">CardTest&nbsp;</font><font color="#000000">{</font><br />
+<font color="#808080">013</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">/**&nbsp;The&nbsp;Clubs&nbsp;suit.&nbsp;*/</font><br />
+<font color="#808080">014</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>private&nbsp;static&nbsp;final&nbsp;</b></font><font color="#000000">Suit&nbsp;CLUBS&nbsp;=&nbsp;Suit.valueOf</font><font color="#000000">(</font><font color="#990000">&#34;CLUBS&#34;</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">015</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">/**&nbsp;The&nbsp;Diamonds&nbsp;suit.&nbsp;*/</font><br />
+<font color="#808080">016</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>private&nbsp;static&nbsp;final&nbsp;</b></font><font color="#000000">Suit&nbsp;DIAMONDS&nbsp;=&nbsp;Suit.valueOf</font><font color="#000000">(</font><font color="#990000">&#34;DIAMONDS&#34;</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">017</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">/**&nbsp;The&nbsp;Hearts&nbsp;suit.&nbsp;*/</font><br />
+<font color="#808080">018</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>private&nbsp;static&nbsp;final&nbsp;</b></font><font color="#000000">Suit&nbsp;HEARTS&nbsp;=&nbsp;Suit.valueOf</font><font color="#000000">(</font><font color="#990000">&#34;HEARTS&#34;</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">019</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">/**&nbsp;The&nbsp;Spades&nbsp;suit.&nbsp;*/</font><br />
+<font color="#808080">020</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>private&nbsp;static&nbsp;final&nbsp;</b></font><font color="#000000">Suit&nbsp;SPADES&nbsp;=&nbsp;Suit.valueOf</font><font color="#000000">(</font><font color="#990000">&#34;SPADES&#34;</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">021</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">/**&nbsp;The&nbsp;Seven&nbsp;rank.&nbsp;*/</font><br />
+<font color="#808080">022</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>private&nbsp;static&nbsp;final&nbsp;</b></font><font color="#000000">Rank&nbsp;SEVEN&nbsp;=&nbsp;Rank.valueOf</font><font color="#000000">(</font><font color="#990000">&#34;SEVEN&#34;</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">023</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">/**&nbsp;The&nbsp;Jack&nbsp;rank.&nbsp;*/</font><br />
+<font color="#808080">024</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>private&nbsp;static&nbsp;final&nbsp;</b></font><font color="#000000">Rank&nbsp;JACK&nbsp;=&nbsp;Rank.valueOf</font><font color="#000000">(</font><font color="#990000">&#34;JACK&#34;</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">025</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">/**&nbsp;The&nbsp;Queen&nbsp;rank.&nbsp;*/</font><br />
+<font color="#808080">026</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>private&nbsp;static&nbsp;final&nbsp;</b></font><font color="#000000">Rank&nbsp;QUEEN&nbsp;=&nbsp;Rank.valueOf</font><font color="#000000">(</font><font color="#990000">&#34;QUEEN&#34;</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">027</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">028</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">/**&nbsp;Queen&nbsp;of&nbsp;Hearts&nbsp;cardID.&nbsp;*/</font><br />
+<font color="#808080">029</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>private&nbsp;static&nbsp;final&nbsp;</b></font><font color="#c00000"><b>int&nbsp;</b></font><font color="#000000">QH_ID</font><br />
+<font color="#808080">030</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">=&nbsp;</font><font color="#000000">(</font><font color="#000000">HEARTS.ordinal</font><font color="#000000">()&nbsp;</font><font color="#000000">*&nbsp;Rank.values</font><font color="#000000">()</font><font color="#000000">.length</font><font color="#000000">)&nbsp;</font><font color="#000000">+&nbsp;QUEEN.ordinal</font><font color="#000000">()</font><font color="#000000">;</font><br />
+<font color="#808080">031</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">032</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">/**&nbsp;Seven&nbsp;of&nbsp;Clubs&nbsp;cardID.&nbsp;*/</font><br />
+<font color="#808080">033</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>private&nbsp;static&nbsp;final&nbsp;</b></font><font color="#c00000"><b>int&nbsp;</b></font><font color="#000000">SC_ID</font><br />
+<font color="#808080">034</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">=&nbsp;</font><font color="#000000">(</font><font color="#000000">CLUBS.ordinal</font><font color="#000000">()&nbsp;</font><font color="#000000">*&nbsp;Rank.values</font><font color="#000000">()</font><font color="#000000">.length</font><font color="#000000">)&nbsp;</font><font color="#000000">+&nbsp;SEVEN.ordinal</font><font color="#000000">()</font><font color="#000000">;</font><br />
+<font color="#808080">035</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">036</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">/**</font><br />
+<font color="#808080">037</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;Verify&nbsp;default&nbsp;card&nbsp;construction&nbsp;and&nbsp;access.</font><br />
+<font color="#808080">038</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;Exercises&nbsp;equals&nbsp;and&nbsp;hashCode&nbsp;methods.</font><br />
+<font color="#808080">039</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">*/</font><br />
+<font color="#808080">040</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#646464">@Test</font><br />
+<font color="#808080">041</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>public&nbsp;final&nbsp;</b></font><font color="#c00000"><b>void&nbsp;</b></font><font color="#000000">defaultCardTest</font><font color="#000000">()&nbsp;{</font><br />
+<font color="#808080">042</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">Card&nbsp;cardDefault&nbsp;=&nbsp;</font><font color="#0000c0"><b>new&nbsp;</b></font><font color="#000000">Card</font><font color="#000000">()</font><font color="#000000">;</font><br />
+<font color="#808080">043</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">assertNotNull</font><font color="#000000">(</font><font color="#000000">cardDefault.rank</font><font color="#000000">())</font><font color="#000000">;</font><br />
+<font color="#808080">044</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">assertNotNull</font><font color="#000000">(</font><font color="#000000">cardDefault.suit</font><font color="#000000">())</font><font color="#000000">;</font><br />
+<font color="#808080">045</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">assertEquals</font><font color="#000000">(</font><font color="#000000">cardDefault,&nbsp;</font><font color="#000000">(</font><font color="#0000c0"><b>new&nbsp;</b></font><font color="#000000">Card</font><font color="#000000">()))</font><font color="#000000">;</font><br />
+<font color="#808080">046</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">assertEquals</font><font color="#000000">(</font><font color="#000000">cardDefault.hashCode</font><font color="#000000">()</font><font color="#000000">,&nbsp;</font><font color="#000000">(</font><font color="#0000c0"><b>new&nbsp;</b></font><font color="#000000">Card</font><font color="#000000">())</font><font color="#000000">.hashCode</font><font color="#000000">())</font><font color="#000000">;</font><br />
+<font color="#808080">047</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">048</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">049</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">/**</font><br />
+<font color="#808080">050</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;Verify&nbsp;Queen&nbsp;of&nbsp;Hearts&nbsp;construction&nbsp;and&nbsp;access.</font><br />
+<font color="#808080">051</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;Exercises&nbsp;equals&nbsp;and&nbsp;hashCode&nbsp;methods.</font><br />
+<font color="#808080">052</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">*/</font><br />
+<font color="#808080">053</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#646464">@Test</font><br />
+<font color="#808080">054</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>public&nbsp;final&nbsp;</b></font><font color="#c00000"><b>void&nbsp;</b></font><font color="#000000">queenOfHeartsTest</font><font color="#000000">()&nbsp;{</font><br />
+<font color="#808080">055</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">Card&nbsp;cardQH&nbsp;=&nbsp;</font><font color="#0000c0"><b>new&nbsp;</b></font><font color="#000000">Card</font><font color="#000000">(</font><font color="#000000">QUEEN,&nbsp;HEARTS</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">056</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">assertEquals</font><font color="#000000">(</font><font color="#000000">QUEEN,&nbsp;cardQH.rank</font><font color="#000000">())</font><font color="#000000">;</font><br />
+<font color="#808080">057</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">assertEquals</font><font color="#000000">(</font><font color="#000000">HEARTS,&nbsp;cardQH.suit</font><font color="#000000">())</font><font color="#000000">;</font><br />
+<font color="#808080">058</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">assertEquals</font><font color="#000000">(</font><font color="#000000">QH_ID,&nbsp;cardQH.cardID</font><font color="#000000">())</font><font color="#000000">;</font><br />
+<font color="#808080">059</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">assertEquals</font><font color="#000000">(</font><font color="#990000">&#34;Queen&nbsp;of&nbsp;Hearts&#34;</font><font color="#000000">,&nbsp;cardQH.toString</font><font color="#000000">())</font><font color="#000000">;</font><br />
+<font color="#808080">060</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">assertEquals</font><font color="#000000">(</font><font color="#000000">cardQH,&nbsp;</font><font color="#000000">(</font><font color="#0000c0"><b>new&nbsp;</b></font><font color="#000000">Card</font><font color="#000000">(</font><font color="#000000">QH_ID</font><font color="#000000">)))</font><font color="#000000">;</font><br />
+<font color="#808080">061</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">assertEquals</font><font color="#000000">(</font><font color="#000000">cardQH.hashCode</font><font color="#000000">()</font><font color="#000000">,&nbsp;</font><font color="#000000">(</font><font color="#0000c0"><b>new&nbsp;</b></font><font color="#000000">Card</font><font color="#000000">(</font><font color="#000000">QH_ID</font><font color="#000000">))</font><font color="#000000">.hashCode</font><font color="#000000">())</font><font color="#000000">;</font><br />
+<font color="#808080">062</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">063</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">064</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">/**</font><br />
+<font color="#808080">065</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;Verify&nbsp;7&nbsp;of&nbsp;Clubs&nbsp;construction&nbsp;and&nbsp;access.</font><br />
+<font color="#808080">066</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;Exercises&nbsp;equals&nbsp;and&nbsp;hashCode&nbsp;methods.</font><br />
+<font color="#808080">067</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">*/</font><br />
+<font color="#808080">068</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#646464">@Test</font><br />
+<font color="#808080">069</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>public&nbsp;final&nbsp;</b></font><font color="#c00000"><b>void&nbsp;</b></font><font color="#000000">sevenOfClubsTest</font><font color="#000000">()&nbsp;{</font><br />
+<font color="#808080">070</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">Card&nbsp;card7C&nbsp;=&nbsp;</font><font color="#0000c0"><b>new&nbsp;</b></font><font color="#000000">Card</font><font color="#000000">(</font><font color="#000000">SEVEN,&nbsp;CLUBS</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">071</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">assertEquals</font><font color="#000000">(</font><font color="#000000">SEVEN,&nbsp;card7C.rank</font><font color="#000000">())</font><font color="#000000">;</font><br />
+<font color="#808080">072</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">assertEquals</font><font color="#000000">(</font><font color="#000000">SC_ID,&nbsp;card7C.cardID</font><font color="#000000">())</font><font color="#000000">;</font><br />
+<font color="#808080">073</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">assertEquals</font><font color="#000000">(</font><font color="#000000">CLUBS,&nbsp;card7C.suit</font><font color="#000000">())</font><font color="#000000">;</font><br />
+<font color="#808080">074</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">assertEquals</font><font color="#000000">(</font><font color="#990000">&#34;Seven&nbsp;of&nbsp;Clubs&#34;</font><font color="#000000">,&nbsp;card7C.toString</font><font color="#000000">())</font><font color="#000000">;</font><br />
+<font color="#808080">075</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">assertEquals</font><font color="#000000">(</font><font color="#000000">card7C,&nbsp;</font><font color="#000000">(</font><font color="#0000c0"><b>new&nbsp;</b></font><font color="#000000">Card</font><font color="#000000">(</font><font color="#000000">SC_ID</font><font color="#000000">)))</font><font color="#000000">;</font><br />
+<font color="#808080">076</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">assertEquals</font><font color="#000000">(</font><font color="#000000">card7C.hashCode</font><font color="#000000">()</font><font color="#000000">,&nbsp;</font><font color="#000000">(</font><font color="#0000c0"><b>new&nbsp;</b></font><font color="#000000">Card</font><font color="#000000">(</font><font color="#000000">SC_ID</font><font color="#000000">))</font><font color="#000000">.hashCode</font><font color="#000000">())</font><font color="#000000">;</font><br />
+<font color="#808080">077</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">078</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">079</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">/**</font><br />
+<font color="#808080">080</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;Verify&nbsp;copy&nbsp;construction.</font><br />
+<font color="#808080">081</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;Exercises&nbsp;equals&nbsp;and&nbsp;hashCode&nbsp;methods.</font><br />
+<font color="#808080">082</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">*/</font><br />
+<font color="#808080">083</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#646464">@Test</font><br />
+<font color="#808080">084</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>public&nbsp;final&nbsp;</b></font><font color="#c00000"><b>void&nbsp;</b></font><font color="#000000">copyTest</font><font color="#000000">()&nbsp;{</font><br />
+<font color="#808080">085</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">Card&nbsp;cardDefault&nbsp;=&nbsp;</font><font color="#0000c0"><b>new&nbsp;</b></font><font color="#000000">Card</font><font color="#000000">()</font><font color="#000000">;</font><br />
+<font color="#808080">086</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">Card&nbsp;copyD&nbsp;=&nbsp;</font><font color="#0000c0"><b>new&nbsp;</b></font><font color="#000000">Card</font><font color="#000000">(</font><font color="#000000">cardDefault</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">087</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">assertEquals</font><font color="#000000">(</font><font color="#000000">cardDefault,&nbsp;copyD</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">088</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">assertEquals</font><font color="#000000">(</font><font color="#000000">cardDefault.hashCode</font><font color="#000000">()</font><font color="#000000">,&nbsp;copyD.hashCode</font><font color="#000000">())</font><font color="#000000">;</font><br />
+<font color="#808080">089</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">Card&nbsp;cardJD&nbsp;=&nbsp;</font><font color="#0000c0"><b>new&nbsp;</b></font><font color="#000000">Card</font><font color="#000000">(</font><font color="#000000">JACK,&nbsp;DIAMONDS</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">090</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">Card&nbsp;copyJD&nbsp;=&nbsp;</font><font color="#0000c0"><b>new&nbsp;</b></font><font color="#000000">Card</font><font color="#000000">(</font><font color="#000000">cardJD</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">091</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">assertEquals</font><font color="#000000">(</font><font color="#000000">cardJD,&nbsp;copyJD</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">092</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">assertEquals</font><font color="#000000">(</font><font color="#000000">cardJD.hashCode</font><font color="#000000">()</font><font color="#000000">,&nbsp;copyJD.hashCode</font><font color="#000000">())</font><font color="#000000">;</font><br />
+<font color="#808080">093</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">assertEquals</font><font color="#000000">(</font><font color="#000000">DIAMONDS,&nbsp;copyJD.suit</font><font color="#000000">())</font><font color="#000000">;</font><br />
+<font color="#808080">094</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">assertEquals</font><font color="#000000">(</font><font color="#000000">JACK,&nbsp;copyJD.rank</font><font color="#000000">())</font><font color="#000000">;</font><br />
+<font color="#808080">095</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">096</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">097</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">/**&nbsp;Verify&nbsp;behavior&nbsp;of&nbsp;equals&nbsp;in&nbsp;presence&nbsp;of&nbsp;null.&nbsp;*/</font><br />
+<font color="#808080">098</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#646464">@Test</font><br />
+<font color="#808080">099</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>public&nbsp;final&nbsp;</b></font><font color="#c00000"><b>void&nbsp;</b></font><font color="#000000">equalsNullTest</font><font color="#000000">()&nbsp;{</font><br />
+<font color="#808080">100</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">Card&nbsp;card7C&nbsp;=&nbsp;</font><font color="#0000c0"><b>new&nbsp;</b></font><font color="#000000">Card</font><font color="#000000">(</font><font color="#000000">SEVEN,&nbsp;CLUBS</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">101</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">assertFalse</font><font color="#000000">(</font><font color="#000000">card7C.equals</font><font color="#000000">(</font><font color="#0000c0"><b>null</b></font><font color="#000000">))</font><font color="#000000">;</font><br />
+<font color="#808080">102</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">103</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">104</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">/**&nbsp;Verify&nbsp;behavior&nbsp;of&nbsp;equals&nbsp;with&nbsp;object&nbsp;of&nbsp;different&nbsp;class.&nbsp;*/</font><br />
+<font color="#808080">105</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#646464">@Test</font><br />
+<font color="#808080">106</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>public&nbsp;final&nbsp;</b></font><font color="#c00000"><b>void&nbsp;</b></font><font color="#000000">equalsOtherClassTest</font><font color="#000000">()&nbsp;{</font><br />
+<font color="#808080">107</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">Card&nbsp;card7C&nbsp;=&nbsp;</font><font color="#0000c0"><b>new&nbsp;</b></font><font color="#000000">Card</font><font color="#000000">(</font><font color="#000000">SEVEN,&nbsp;CLUBS</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">108</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">assertFalse</font><font color="#000000">(</font><font color="#000000">card7C.equals</font><font color="#000000">(</font><font color="#990000">&#34;Seven&nbsp;of&nbsp;Clubs&#34;</font><font color="#000000">))</font><font color="#000000">;</font><br />
+<font color="#808080">109</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">110</font>&nbsp;<font color="#000000">}</font></code>
+    
+   </td>
+  <!-- end source code -->
+   </tr>
+</table>
+</div>
+<!-- =       END of automatically generated HTML code       = -->
+<!-- ======================================================== -->
+
+
+</body></html>

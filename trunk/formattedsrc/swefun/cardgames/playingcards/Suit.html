@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head>
+<title></title>
+  <style type="text/css">
+    <!--code { font-family: Courier New, Courier; font-size: 10pt; margin: 0px; }-->
+  </style>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head><body>
+
+
+<!-- ======================================================== -->
+<!-- = Java Sourcecode to HTML automatically converted code = -->
+<!-- =   Java2Html Converter 5.0 [2006-02-26] by Markus Gebhard  markus@jave.de   = -->
+<!-- =     Further information: http://www.java2html.de     = -->
+<div align="left" class="java">
+<table border="0" cellpadding="3" cellspacing="0" bgcolor="#ffffff">
+  <!-- start headline -->
+   <tr>
+    <td colspan="2">
+     <center><font size="+2">
+      <code><b>
+Suit.java
+      </b></code>
+     </font></center>
+    </td>
+   </tr>
+  <!-- end headline -->
+   <tr>
+  <!-- start source code -->
+   <td nowrap="nowrap" valign="top" align="left">
+    <code>
+<font color="#808080">01</font>&nbsp;<font color="#0000c0"><b>package&nbsp;</b></font><font color="#000000">swefun.cardgames.playingcards;</font><br />
+<font color="#808080">02</font>&nbsp;<font color="#008000">/**</font><br />
+<font color="#808080">03</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;Enumeration&nbsp;class&nbsp;for&nbsp;the&nbsp;suits&nbsp;of&nbsp;cards.</font><br />
+<font color="#808080">04</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;Supports&nbsp;a&nbsp;color()&nbsp;method&nbsp;that&nbsp;retrieves&nbsp;the</font><br />
+<font color="#808080">05</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;color&nbsp;string&nbsp;associated&nbsp;with&nbsp;a&nbsp;suit:</font><br />
+<font color="#808080">06</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;Clubs&nbsp;=&nbsp;&#34;BLACK&#34;,&nbsp;Diamonds&nbsp;=&nbsp;&#34;RED&#34;,</font><br />
+<font color="#808080">07</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;Hearts&nbsp;=&nbsp;&#34;RED&#34;,&nbsp;Spades&nbsp;=&nbsp;&#34;BLACK&#34;.</font><br />
+<font color="#808080">08</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#005500">@author&nbsp;</font><font color="#008000">Dr.&nbsp;Jody&nbsp;Paul</font><br />
+<font color="#808080">09</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#005500">@version&nbsp;</font><font color="#008000">1.2&nbsp;$Id:&nbsp;Suit.java&nbsp;295&nbsp;2017-03-24&nbsp;21:26:19Z&nbsp;jody&nbsp;$</font><br />
+<font color="#808080">10</font>&nbsp;<font color="#ffffff">&nbsp;</font><font color="#008000">*/</font><br />
+<font color="#808080">11</font>&nbsp;<font color="#0000c0"><b>public&nbsp;enum&nbsp;</b></font><font color="#000000">Suit&nbsp;</font><font color="#000000">{</font><br />
+<font color="#808080">12</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">CLUBS</font><font color="#000000">(</font><font color="#990000">&#34;Clubs&#34;</font><font color="#000000">,&nbsp;</font><font color="#990000">&#34;BLACK&#34;</font><font color="#000000">)</font><font color="#000000">,</font><br />
+<font color="#808080">13</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">DIAMONDS</font><font color="#000000">(</font><font color="#990000">&#34;Diamonds&#34;</font><font color="#000000">,&nbsp;</font><font color="#990000">&#34;RED&#34;</font><font color="#000000">)</font><font color="#000000">,</font><br />
+<font color="#808080">14</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">HEARTS</font><font color="#000000">(</font><font color="#990000">&#34;Hearts&#34;</font><font color="#000000">,&nbsp;</font><font color="#990000">&#34;RED&#34;</font><font color="#000000">)</font><font color="#000000">,</font><br />
+<font color="#808080">15</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">SPADES</font><font color="#000000">(</font><font color="#990000">&#34;Spades&#34;</font><font color="#000000">,&nbsp;</font><font color="#990000">&#34;BLACK&#34;</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">16</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">17</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">/**&nbsp;The&nbsp;display&nbsp;name&nbsp;of&nbsp;this&nbsp;suit.&nbsp;*/</font><br />
+<font color="#808080">18</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>private&nbsp;</b></font><font color="#000000">String&nbsp;name;</font><br />
+<font color="#808080">19</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">20</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">/**&nbsp;The&nbsp;color&nbsp;of&nbsp;this&nbsp;suit.&nbsp;*/</font><br />
+<font color="#808080">21</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>private&nbsp;</b></font><font color="#000000">String&nbsp;suitColor;</font><br />
+<font color="#808080">22</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">23</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">/**&nbsp;The&nbsp;color&nbsp;red.&nbsp;*/</font><br />
+<font color="#808080">24</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>public&nbsp;static&nbsp;final&nbsp;</b></font><font color="#000000">String&nbsp;RED&nbsp;=&nbsp;</font><font color="#990000">&#34;RED&#34;</font><font color="#000000">;</font><br />
+<font color="#808080">25</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">26</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">/**&nbsp;The&nbsp;color&nbsp;black.&nbsp;*/</font><br />
+<font color="#808080">27</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>public&nbsp;static&nbsp;final&nbsp;</b></font><font color="#000000">String&nbsp;BLACK&nbsp;=&nbsp;</font><font color="#990000">&#34;BLACK&#34;</font><font color="#000000">;</font><br />
+<font color="#808080">28</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">29</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">/**</font><br />
+<font color="#808080">30</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;Construct&nbsp;Suit.</font><br />
+<font color="#808080">31</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#005500">@param&nbsp;</font><font color="#008000">displayName&nbsp;the&nbsp;display&nbsp;name&nbsp;of&nbsp;this&nbsp;suit</font><br />
+<font color="#808080">32</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#005500">@param&nbsp;</font><font color="#008000">color&nbsp;the&nbsp;color&nbsp;of&nbsp;this&nbsp;suit</font><br />
+<font color="#808080">33</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">*/</font><br />
+<font color="#808080">34</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">Suit</font><font color="#000000">(</font><font color="#0000c0"><b>final&nbsp;</b></font><font color="#000000">String&nbsp;displayName,&nbsp;</font><font color="#0000c0"><b>final&nbsp;</b></font><font color="#000000">String&nbsp;color</font><font color="#000000">)&nbsp;{</font><br />
+<font color="#808080">35</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>this</b></font><font color="#000000">.name&nbsp;=&nbsp;displayName;</font><br />
+<font color="#808080">36</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>if&nbsp;</b></font><font color="#000000">(</font><font color="#000000">color.compareToIgnoreCase</font><font color="#000000">(</font><font color="#000000">RED</font><font color="#000000">)&nbsp;</font><font color="#000000">==&nbsp;</font><font color="#990000">0</font><font color="#000000">)&nbsp;{</font><br />
+<font color="#808080">37</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>this</b></font><font color="#000000">.suitColor&nbsp;=&nbsp;RED;</font><br />
+<font color="#808080">38</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}&nbsp;</font><font color="#0000c0"><b>else&nbsp;if&nbsp;</b></font><font color="#000000">(</font><font color="#000000">color.compareToIgnoreCase</font><font color="#000000">(</font><font color="#000000">BLACK</font><font color="#000000">)&nbsp;</font><font color="#000000">==&nbsp;</font><font color="#990000">0</font><font color="#000000">)&nbsp;{</font><br />
+<font color="#808080">39</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>this</b></font><font color="#000000">.suitColor&nbsp;=&nbsp;BLACK;</font><br />
+<font color="#808080">40</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}&nbsp;</font><font color="#0000c0"><b>else&nbsp;</b></font><font color="#000000">{</font><br />
+<font color="#808080">41</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>throw&nbsp;</b></font><font color="#000000">(</font><font color="#0000c0"><b>new&nbsp;</b></font><font color="#000000">IllegalArgumentException</font><font color="#000000">(</font><font color="#990000">&#34;Color&nbsp;must&nbsp;be&nbsp;&#34;</font><br />
+<font color="#808080">42</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">+&nbsp;BLACK&nbsp;+&nbsp;</font><font color="#990000">&#34;&nbsp;or&nbsp;&#34;</font><br />
+<font color="#808080">43</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">+&nbsp;RED&nbsp;+&nbsp;</font><font color="#990000">&#34;(found&nbsp;&#34;</font><br />
+<font color="#808080">44</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">+&nbsp;color&nbsp;+&nbsp;</font><font color="#990000">&#34;)&#34;</font><font color="#000000">))</font><font color="#000000">;</font><br />
+<font color="#808080">45</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">46</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">47</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">48</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">/**</font><br />
+<font color="#808080">49</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;Access&nbsp;the&nbsp;color&nbsp;of&nbsp;this&nbsp;suit.</font><br />
+<font color="#808080">50</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;</font><font color="#005500">@return&nbsp;</font><font color="#008000">the&nbsp;color&nbsp;of&nbsp;this&nbsp;suit</font><br />
+<font color="#808080">51</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">*/</font><br />
+<font color="#808080">52</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>public&nbsp;</b></font><font color="#000000">String&nbsp;color</font><font color="#000000">()&nbsp;{</font><br />
+<font color="#808080">53</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>return&nbsp;this</b></font><font color="#000000">.suitColor;</font><br />
+<font color="#808080">54</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">55</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">56</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#646464">@Override</font><br />
+<font color="#808080">57</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>public&nbsp;</b></font><font color="#000000">String&nbsp;toString</font><font color="#000000">()&nbsp;{</font><br />
+<font color="#808080">58</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#0000c0"><b>return&nbsp;this</b></font><font color="#000000">.name;</font><br />
+<font color="#808080">59</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">60</font>&nbsp;<font color="#000000">}</font></code>
+    
+   </td>
+  <!-- end source code -->
+   </tr>
+</table>
+</div>
+<!-- =       END of automatically generated HTML code       = -->
+<!-- ======================================================== -->
+
+
+</body></html>
